@@ -40,9 +40,13 @@ public class ParallelMatrixServer {
             }
             System.out.println("Клиент отключился");
             client.close();
-        }catch (IOException|ClassNotFoundException  e){
+        }catch (IOException e){
             System.out.println(e);
-        }finally {
+        }catch (ClassNotFoundException  e)
+        {
+            System.out.println(e);
+        }
+        finally {
             try {
                 client.close();
                 System.out.println("Клиент отключился.");
