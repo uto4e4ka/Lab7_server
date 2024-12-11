@@ -15,6 +15,7 @@ public class ParallelMatrixServer {
     ExecutorService threadPool = Executors.newFixedThreadPool(10);
     public ParallelMatrixServer(int port){
         try (ServerSocket serverSocket = new ServerSocket(port)){
+            System.out.println("Сервер запущен: "+serverSocket.getInetAddress());
             while (true){
                 Socket socket =serverSocket.accept();
                 threadPool.submit(()->userHandler(socket));
